@@ -16,13 +16,16 @@ public class Animal {
 	private Sexo sexo;
 	private Date fechaNacimiento;
 	private Propietario propietario;
-	private List<CambioPropietarioAnimal> historialPropietarios;
+	private List<HistorialPropietarioAnimal> historialPropietarios;
+	private Animal padre;
+	private Animal madre;
+	private Raza raza;
 
 	/**
 	 * Constructor
 	 */
 	public Animal() {
-		historialPropietarios = new ArrayList<CambioPropietarioAnimal>();
+		historialPropietarios = new ArrayList<HistorialPropietarioAnimal>();
 	}
 
 	/**
@@ -141,7 +144,7 @@ public class Animal {
 	 * 
 	 * @return Historial de propietarios del animal
 	 */
-	public List<CambioPropietarioAnimal> getHistorialPropietarios() {
+	public List<HistorialPropietarioAnimal> getHistorialPropietarios() {
 		return historialPropietarios;
 	}
 
@@ -150,7 +153,7 @@ public class Animal {
 	 * 
 	 * @param historialPropietarios Nuevo historial de propietarios
 	 */
-	public void setHistorialPropietarios(List<CambioPropietarioAnimal> historialPropietarios) {
+	public void setHistorialPropietarios(List<HistorialPropietarioAnimal> historialPropietarios) {
 		this.historialPropietarios = historialPropietarios;
 	}
 
@@ -161,7 +164,7 @@ public class Animal {
 	 * @param fecha            Fecha del cambio de dueño
 	 */
 	public void cambiarPropietario(Propietario nuevoPropietario, Date fecha) {
-		CambioPropietarioAnimal cambio = new CambioPropietarioAnimal();
+		HistorialPropietarioAnimal cambio = new HistorialPropietarioAnimal();
 		cambio.setAnimal(this);
 		cambio.setFechaPaso(fecha);
 		cambio.setPropietario(nuevoPropietario);
@@ -178,13 +181,67 @@ public class Animal {
 	 * @param fecha             Fecha del registro
 	 */
 	public void setPrimerPropietario(Propietario primerPropietario, Date fecha) {
-		CambioPropietarioAnimal cambio = new CambioPropietarioAnimal();
+		HistorialPropietarioAnimal cambio = new HistorialPropietarioAnimal();
 		cambio.setAnimal(this);
 		cambio.setFechaPaso(fecha);
 		cambio.setPropietario(primerPropietario);
 		cambio.setTipoPaso(TipoPasoPropietario.Inicio);
 		getHistorialPropietarios().add(cambio);
 		setPropietario(primerPropietario);
+	}
+	
+	/**
+	 * Obtiene el padre de la mascota
+	 * 
+	 * @return Padre
+	 */
+	public Animal getPadre() {
+		return padre;
+	}
+
+	/**
+	 * Modifica el padre de la mascota
+	 * 
+	 * @param padre Nuevo padre
+	 */
+	public void setPadre(Animal padre) {
+		this.padre = padre;
+	}
+
+	/**
+	 * Obtiene la madre de la mascota
+	 * 
+	 * @return Madre
+	 */
+	public Animal getMadre() {
+		return madre;
+	}
+
+	/**
+	 * Modifica la madre de la mascota
+	 * 
+	 * @param madre Nueva madre
+	 */
+	public void setMadre(Animal madre) {
+		this.madre = madre;
+	}
+
+	/**
+	 * Obtiene la raza
+	 * 
+	 * @return Raza
+	 */
+	public Raza getRaza() {
+		return raza;
+	}
+
+	/**
+	 * Modifica la raza
+	 * 
+	 * @param raza Nueva raza
+	 */
+	public void setRaza(Raza raza) {
+		this.raza = raza;
 	}
 
 }

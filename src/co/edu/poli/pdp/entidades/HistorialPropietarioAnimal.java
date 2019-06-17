@@ -6,7 +6,7 @@ import java.util.Date;
  * Representa un ítem dentro del historial de propietarios de un animal
  *
  */
-public class CambioPropietarioAnimal {
+public class HistorialPropietarioAnimal {
 
 	private Animal animal;
 	private Propietario propietario;

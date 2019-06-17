@@ -6,19 +6,19 @@ package co.edu.poli.pdp.entidades;
  */
 public abstract class Persona {
 
-	private int numeroDocumento;
+	private long numeroDocumento;
 	private String nombre;
 	private String apellido;
 	private String direccion;
-	private int telefono;
-	private int celular;
+	private long telefono;
+	private long celular;
 
 	/**
 	 * Obtiene el número de documento
 	 * 
 	 * @return Número de documento
 	 */
-	public int getNumeroDocumento() {
+	public long getNumeroDocumento() {
 		return numeroDocumento;
 	}
 
@@ -27,7 +27,7 @@ public abstract class Persona {
 	 * 
 	 * @param numeroDocumento Nuevo número de documento
 	 */
-	public void setNumeroDocumento(int numeroDocumento) {
+	public void setNumeroDocumento(long numeroDocumento) {
 		this.numeroDocumento = numeroDocumento;
 	}
 
@@ -90,7 +90,7 @@ public abstract class Persona {
 	 * 
 	 * @return Teléfono
 	 */
-	public int getTelefono() {
+	public long getTelefono() {
 		return telefono;
 	}
 
@@ -99,7 +99,7 @@ public abstract class Persona {
 	 * 
 	 * @param telefono Nuevo teléfono
 	 */
-	public void setTelefono(int telefono) {
+	public void setTelefono(long telefono) {
 		this.telefono = telefono;
 	}
 
@@ -108,7 +108,7 @@ public abstract class Persona {
 	 * 
 	 * @return Celular
 	 */
-	public int getCelular() {
+	public long getCelular() {
 		return celular;
 	}
 
@@ -117,7 +117,7 @@ public abstract class Persona {
 	 * 
 	 * @param celular Nuevo celular
 	 */
-	public void setCelular(int celular) {
+	public void setCelular(long celular) {
 		this.celular = celular;
 	}
 

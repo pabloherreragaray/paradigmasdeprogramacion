@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Profesional extends Persona {
 
-	private int numeroRegistro;
+	private long numeroRegistro;
 	private List<Especialidad> especialidades;
 
 	/**
@@ -24,7 +24,7 @@ public class Profesional extends Persona {
 	 * 
 	 * @return Número de registro
 	 */
-	public int getNumeroRegistro() {
+	public long getNumeroRegistro() {
 		return numeroRegistro;
 	}
 
@@ -33,7 +33,7 @@ public class Profesional extends Persona {
 	 * 
 	 * @param numeroRegistro Nuevo número de registro
 	 */
-	public void setNumeroRegistro(int numeroRegistro) {
+	public void setNumeroRegistro(long numeroRegistro) {
 		this.numeroRegistro = numeroRegistro;
 	}
 
