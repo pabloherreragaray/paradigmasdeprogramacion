@@ -1,5 +1,6 @@
 package co.edu.poli.pdp.entidades;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -8,8 +9,12 @@ import java.util.List;
  * Clase que representa un animal
  *
  */
-public class Animal {
+public class Animal implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3704451772981312025L;
 	private int numeroRegistro;
 	private Especie especie;
 	private String nombre;

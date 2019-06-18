@@ -1,5 +1,6 @@
 package co.edu.poli.pdp.entidades;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,8 +8,12 @@ import java.util.List;
  * Representa un profesional que hereda de una Persona
  *
  */
-public class Profesional extends Persona {
+public class Profesional extends Persona implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9142290783378917864L;
 	private long numeroRegistro;
 	private List<Especialidad> especialidades;
 

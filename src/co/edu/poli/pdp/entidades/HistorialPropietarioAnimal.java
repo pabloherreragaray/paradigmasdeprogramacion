@@ -1,13 +1,18 @@
 package co.edu.poli.pdp.entidades;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Representa un ítem dentro del historial de propietarios de un animal
  *
  */
-public class HistorialPropietarioAnimal {
+public class HistorialPropietarioAnimal implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2399113041408564506L;
 	private Animal animal;
 	private Propietario propietario;
 	private Date fechaPaso;

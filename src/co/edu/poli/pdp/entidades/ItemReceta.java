@@ -1,11 +1,17 @@
 package co.edu.poli.pdp.entidades;
 
+import java.io.Serializable;
+
 /**
  * Representa el ítem de una receta
  *
  */
-public class ItemReceta {
+public class ItemReceta implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4267574670635398965L;
 	private Medicina medicina;
 	private String dosis;
 	private int frecuenciaEnHoras;

@@ -1,11 +1,17 @@
 package co.edu.poli.pdp.entidades;
 
+import java.io.Serializable;
+
 /**
  * Representa una especialidad
  *
  */
-public class Especialidad {
+public class Especialidad implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7744088384148404003L;
 	private String nombre;
 
 	/**

@@ -1,11 +1,17 @@
 package co.edu.poli.pdp.entidades;
 
+import java.io.Serializable;
+
 /**
  * Representa una medicina o medicamento
  *
  */
-public class Medicina {
+public class Medicina implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7517398780498507406L;
 	private String codigo;
 	private String nombreDroga;
 

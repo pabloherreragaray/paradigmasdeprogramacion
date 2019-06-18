@@ -16,12 +16,15 @@ import co.edu.poli.pdp.entidades.Profesional;
 import co.edu.poli.pdp.entidades.Propietario;
 import co.edu.poli.pdp.entidades.Raza;
 import co.edu.poli.pdp.entidades.Sexo;
+import co.edu.poli.pdp.persistencia.ContenedorSerializable;
+import co.edu.poli.pdp.persistencia.DALInterface;
 
 /**
  * Clase contenedora de todas las entidades
  *
  */
 public class SistemaConsultasMedicasVeterinaria {
+	private static SistemaConsultasMedicasVeterinaria instancia;
 
 	private List<Animal> animales;
 	private List<Propietario> propietarios;
@@ -33,11 +36,12 @@ public class SistemaConsultasMedicasVeterinaria {
 	private List<Enfermedad> enfermedades;
 	private List<Patologia> patologias;
 	private List<Medicina> medicinas;
+	private DALInterface dal;
 
 	/**
-	 * Constructor
+	 * Constructor privado
 	 */
-	public SistemaConsultasMedicasVeterinaria() {
+	private SistemaConsultasMedicasVeterinaria() {
 		animales = new ArrayList<Animal>();
 		propietarios = new ArrayList<Propietario>();
 		profesionales = new ArrayList<Profesional>();
@@ -51,12 +55,33 @@ public class SistemaConsultasMedicasVeterinaria {
 	}
 
 	/**
+	 * Patrón singleton
+	 * 
+	 * @return Instancia única
+	 */
+	public static SistemaConsultasMedicasVeterinaria getInstancia() {
+		if (instancia == null)
+			instancia = new SistemaConsultasMedicasVeterinaria();
+		return instancia;
+	}
+
+	/**
 	 * Obtiene la lista de animales
 	 * 
 	 * @return Animales
 	 */
 	public List<Animal> getAnimales() {
 		return animales;
+	}
+
+	/**
+	 * Encuantra un animal por su número de registro
+	 * 
+	 * @param numeroRegistro Número de registro
+	 * @return Animal encontrado o null
+	 */
+	public Animal getAnimalPorNumeroRegistro(int numeroRegistro) {
+		return animales.stream().filter((a) -> a.getNumeroRegistro() == numeroRegistro).findFirst().orElse(null);
 	}
 
 	/**
@@ -69,12 +94,42 @@ public class SistemaConsultasMedicasVeterinaria {
 	}
 
 	/**
+	 * Obtiene un propietario por su número de documento
+	 * 
+	 * @param numeroDocumento Número de documento
+	 * @return Propietario encontrado o null
+	 */
+	public Propietario getPropietarioPorNumeroDocumento(int numeroDocumento) {
+		return propietarios.stream().filter((p) -> p.getNumeroDocumento() == numeroDocumento).findFirst().orElse(null);
+	}
+
+	/**
 	 * Obtiene la lista de profesionales
 	 * 
 	 * @return Profesionales
 	 */
 	public List<Profesional> getProfesionales() {
 		return profesionales;
+	}
+
+	/**
+	 * Obtiene un profesional por su número de documento
+	 * 
+	 * @param numeroDocumento Número de documento
+	 * @return Profesional encontrado o null
+	 */
+	public Profesional getProfesionalPorNumeroDocumento(int numeroDocumento) {
+		return profesionales.stream().filter((p) -> p.getNumeroDocumento() == numeroDocumento).findFirst().orElse(null);
+	}
+
+	/**
+	 * Obtiene un profesional por su número de registro
+	 * 
+	 * @param numeroRegistro Número de registro
+	 * @return Profesional encontrado o null
+	 */
+	public Profesional getProfesionalPorNumeroRegistro(int numeroRegistro) {
+		return profesionales.stream().filter((p) -> p.getNumeroRegistro() == numeroRegistro).findFirst().orElse(null);
 	}
 
 	/**
@@ -87,12 +142,32 @@ public class SistemaConsultasMedicasVeterinaria {
 	}
 
 	/**
+	 * Obtiene una consulta por su código
+	 * 
+	 * @param codigo Código
+	 * @return Consulta encontrada on null
+	 */
+	public Consulta getConsultaPorCodigo(String codigo) {
+		return consultas.stream().filter((c) -> c.getCodigo().equals(codigo)).findFirst().orElse(null);
+	}
+
+	/**
 	 * Obtiene la lista de especies
 	 * 
 	 * @return Especies
 	 */
 	public List<Especie> getEspecies() {
 		return especies;
+	}
+
+	/**
+	 * Obtiene una especie por su nombre
+	 * 
+	 * @param nombre Nombre
+	 * @return Especie encontrada o null
+	 */
+	public Especie getEspeciePorNombre(String nombre) {
+		return especies.stream().filter((e) -> e.getNombre().equals(nombre)).findFirst().orElse(null);
 	}
 
 	/**
@@ -105,12 +180,32 @@ public class SistemaConsultasMedicasVeterinaria {
 	}
 
 	/**
+	 * Obtiene una raza por su nombre
+	 * 
+	 * @param nombre Nombre
+	 * @return Raza encontrada o null
+	 */
+	public Raza getRazaPorNombre(String nombre) {
+		return razas.stream().filter((r) -> r.getNombre().equals(nombre)).findFirst().orElse(null);
+	}
+
+	/**
 	 * Obtiene la lista de especialidades
 	 * 
 	 * @return especialidades
 	 */
 	public List<Especialidad> getEspecialidades() {
 		return especialidades;
+	}
+
+	/**
+	 * Obtiene una especialidad por su nombre
+	 * 
+	 * @param nombre Nombre
+	 * @return Especialidad encontrada o null
+	 */
+	public Especialidad getEspecialidadPorNombre(String nombre) {
+		return especialidades.stream().filter((e) -> e.getNombre().equals(nombre)).findFirst().orElse(null);
 	}
 
 	/**
@@ -123,6 +218,16 @@ public class SistemaConsultasMedicasVeterinaria {
 	}
 
 	/**
+	 * Obtiene una enfermedad por su nombre
+	 * 
+	 * @param nombre Nombre
+	 * @return Enfermedad encontrada o null
+	 */
+	public Enfermedad getEnfermedadPorNombre(String nombre) {
+		return enfermedades.stream().filter((e) -> e.getNombre().equals(nombre)).findFirst().orElse(null);
+	}
+
+	/**
 	 * Obtiene la lista de patologías
 	 * 
 	 * @return Patologías
@@ -132,12 +237,32 @@ public class SistemaConsultasMedicasVeterinaria {
 	}
 
 	/**
+	 * Obtiene una patología por su código
+	 * 
+	 * @param codigo Código
+	 * @return Patología encontrada o null
+	 */
+	public Patologia getPatologiaPorCodigo(String codigo) {
+		return patologias.stream().filter((p) -> p.getCodigo().equals(codigo)).findFirst().orElse(null);
+	}
+
+	/**
 	 * Obtiene la lista de medicinas
 	 * 
 	 * @return Medicinas
 	 */
 	public List<Medicina> getMedicina() {
 		return medicinas;
+	}
+
+	/**
+	 * Obtiene una medicina por su código
+	 * 
+	 * @param codigo Código
+	 * @return Medicina encontrada o null
+	 */
+	public Medicina getMedicinaPorCodigo(String codigo) {
+		return medicinas.stream().filter((m) -> m.getCodigo().equals(codigo)).findFirst().orElse(null);
 	}
 
 	/**
@@ -494,5 +619,57 @@ public class SistemaConsultasMedicasVeterinaria {
 								.anyMatch((e) -> e.getNombre().equals(especialidad.getNombre()))))
 				.collect(Collectors.toList());
 		return resultado;
+	}
+
+	public DALInterface getDal() {
+		return dal;
+	}
+
+	public void setDal(DALInterface dal) {
+		this.dal = dal;
+	}
+
+	public void guardar() {
+		if (dal == null)
+			return;
+		ContenedorSerializable contenedor = new ContenedorSerializable();
+		contenedor.animales = getAnimales();
+		contenedor.consultas = getConsultas();
+		contenedor.enfermedades = getEnfermedades();
+		contenedor.especialidades = getEspecialidades();
+		contenedor.especies = getEspecies();
+		contenedor.medicinas = getMedicina();
+		contenedor.patologias = getPatologias();
+		contenedor.profesionales = getProfesionales();
+		contenedor.propietarios = getPropietarios();
+		contenedor.razas = getRazas();
+		try {
+			dal.guardar(contenedor);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void cargar() {
+		if (dal == null)
+			return;
+		ContenedorSerializable cont = null;
+		try {
+			cont = dal.cargar();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if (cont == null)
+			return;
+		animales = cont.animales;
+		consultas = cont.consultas;
+		enfermedades = cont.enfermedades;
+		especialidades = cont.especialidades;
+		especies = cont.especies;
+		medicinas = cont.medicinas;
+		patologias = cont.patologias;
+		profesionales = cont.profesionales;
+		propietarios = cont.propietarios;
+		razas = cont.razas;
 	}
 }

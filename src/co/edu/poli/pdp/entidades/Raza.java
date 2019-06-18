@@ -1,11 +1,17 @@
 package co.edu.poli.pdp.entidades;
 
+import java.io.Serializable;
+
 /**
  * Representa una raza
  *
  */
-public class Raza {
+public class Raza implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6636284126515251781L;
 	private String nombre;
 	private Especie especie;
 

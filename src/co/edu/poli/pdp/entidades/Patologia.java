@@ -1,11 +1,17 @@
 package co.edu.poli.pdp.entidades;
 
+import java.io.Serializable;
+
 /**
  * Representa una patología
  *
  */
-public class Patologia {
+public class Patologia implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7663615804407300993L;
 	private String codigo;
 	private String nombre;
 

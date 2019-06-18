@@ -1,5 +1,6 @@
 package co.edu.poli.pdp.entidades;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -8,8 +9,12 @@ import java.util.List;
  * Representa una consulta médica
  *
  */
-public class Consulta {
+public class Consulta implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4163782314181363722L;
 	private String codigo;
 	private Date fecha;
 	private Animal animal;
