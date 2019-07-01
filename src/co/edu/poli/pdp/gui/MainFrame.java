@@ -26,6 +26,7 @@ public class MainFrame extends JFrame {
 	public VentanaEspecialidades especialidades;
 	public VentanaPersonas profesionales;
 	public VentanaPersonas propietarios;
+	public VentanaAnimales animales;
 
 	public MainFrame() {
 		super("Sistema de Consultas Médicas Veterinarias");
@@ -61,8 +62,10 @@ public class MainFrame extends JFrame {
 		profesionales.pack();
 		propietarios = new VentanaPersonas(false);
 		propietarios.pack();
+		animales = new VentanaAnimales();
+		animales.pack();
 		JInternalFrame[] ventanas = new JInternalFrame[] { menuPrincipal, especies, razas, enfermedades, patologias,
-				medicinas, especialidades, profesionales, propietarios };
+				medicinas, especialidades, profesionales, propietarios, animales };
 		for (JInternalFrame f : ventanas) {
 			dpAreaVentanas.add(f);
 		}
@@ -75,7 +78,7 @@ public class MainFrame extends JFrame {
 	public void ubicarVentana(JInternalFrame f) {
 		f.setLocation(menuPrincipal.getLocation().x + menuPrincipal.getWidth(), menuPrincipal.getLocation().y);
 	}
-	
+
 	public void adicionarVentana(JInternalFrame v) {
 		dpAreaVentanas.add(v);
 	}

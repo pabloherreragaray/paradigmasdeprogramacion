@@ -102,13 +102,13 @@ public class VentanaPersonas extends JInternalFrame {
 			}
 		});
 		panelBoton.add(btnBorrar);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		getContentPane().add(scrollPane, BorderLayout.CENTER);
-		
-				table = new JTable();
-				scrollPane.setViewportView(table);
-				table.setPreferredSize(new Dimension(500, 300));
+
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		table.setPreferredSize(new Dimension(500, 300));
 
 	}
 
@@ -129,6 +129,7 @@ public class VentanaPersonas extends JInternalFrame {
 			Object[] interno = new Object[] { p.getNumeroDocumento(), p.getNombre() + " " + p.getApellido(),
 					p.getDireccion(), p.getTelefono(), p.getCelular() };
 			array[fila] = interno;
+			fila++;
 		}
 		JTable table = getTable();
 		DefaultTableModel modelo = new DefaultTableModel(array,

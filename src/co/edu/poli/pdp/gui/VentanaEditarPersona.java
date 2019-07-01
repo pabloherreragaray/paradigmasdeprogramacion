@@ -364,13 +364,17 @@ public class VentanaEditarPersona extends JInternalFrame {
 		}
 		getSistema().guardar();
 		if (persona instanceof Profesional) {
-			mostrarMensaje("Profesional guardado");
+			//mostrarMensaje("Profesional guardado");
 			MainFrame.instancia.profesionales.cargarDatos();
 		} else {
-			mostrarMensaje("Propietario guardado");
+			//mostrarMensaje("Propietario guardado");
 			MainFrame.instancia.propietarios.cargarDatos();
 		}
 		esNuevo = false;
+		if (persona instanceof Profesional)
+			setTitle("Editar profesional");
+		else
+			setTitle("Editar propietario");
 	}
 
 	protected void mostrarEnCampos() {

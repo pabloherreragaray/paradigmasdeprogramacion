@@ -64,6 +64,7 @@ public class VentanaMenuPrincipal extends JInternalFrame {
 		JButton btnAnimales = new JButton("Animales");
 		btnAnimales.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				MainFrame.instancia.animales.mostrar();
 			}
 		});
 		panelAdministracion.add(btnAnimales);
