@@ -194,7 +194,7 @@ public class Animal implements Serializable {
 		getHistorialPropietarios().add(cambio);
 		setPropietario(primerPropietario);
 	}
-	
+
 	/**
 	 * Obtiene el padre de la mascota
 	 * 
@@ -247,6 +247,11 @@ public class Animal implements Serializable {
 	 */
 	public void setRaza(Raza raza) {
 		this.raza = raza;
+	}
+
+	@Override
+	public String toString() {
+		return String.valueOf(getNumeroRegistro()) + " - " + getNombre();
 	}
 
 }

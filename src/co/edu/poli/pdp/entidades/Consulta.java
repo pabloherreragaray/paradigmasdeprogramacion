@@ -221,5 +221,10 @@ public class Consulta implements Serializable {
 	public void adicionarItemAReceta(ItemReceta item) {
 		getReceta().add(item);
 	}
+	
+	@Override
+	public String toString() {
+		return getCodigo();
+	}
 
 }

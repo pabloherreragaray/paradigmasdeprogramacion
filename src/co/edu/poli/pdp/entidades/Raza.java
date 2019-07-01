@@ -50,5 +50,10 @@ public class Raza implements Serializable {
 	public void setEspecie(Especie especie) {
 		this.especie = especie;
 	}
+	
+	@Override
+	public String toString() {
+		return getNombre();
+	}
 
 }

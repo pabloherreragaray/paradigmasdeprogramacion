@@ -1,6 +1,7 @@
 package co.edu.poli.pdp;
 
 import co.edu.poli.pdp.entidades.Especie;
+import co.edu.poli.pdp.gui.MainFrame;
 import co.edu.poli.pdp.persistencia.DALInterface;
 import co.edu.poli.pdp.persistencia.DALSerializable;
 
@@ -16,6 +17,8 @@ public class Main {
 	 * @param args Argumentos
 	 */
 	public static void main(String[] args) {
+		MainFrame main = new MainFrame();
+		main.setVisible(true);
 	}
 	
 	private static void ejemploDeGuardado() {

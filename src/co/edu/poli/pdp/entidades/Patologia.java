@@ -51,4 +51,9 @@ public class Patologia implements Serializable {
 		this.nombre = nombre;
 	}
 
+	@Override
+	public String toString() {
+		return getCodigo() + " - " + getNombre();
+	}
+
 }

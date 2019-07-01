@@ -51,4 +51,9 @@ public class Medicina implements Serializable {
 		this.nombreDroga = nombreDroga;
 	}
 
+	@Override
+	public String toString() {
+		return getCodigo() + " - " + getNombreDroga();
+	}
+
 }

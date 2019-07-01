@@ -1,11 +1,14 @@
 package co.edu.poli.pdp.entidades;
 
+import java.io.Serializable;
+
 /**
  * Representa una persona
  *
  */
-public abstract class Persona {
+public abstract class Persona implements Serializable {
 
+	private static final long serialVersionUID = 6800448562054364810L;
 	private long numeroDocumento;
 	private String nombre;
 	private String apellido;
@@ -119,6 +122,11 @@ public abstract class Persona {
 	 */
 	public void setCelular(long celular) {
 		this.celular = celular;
+	}
+
+	@Override
+	public String toString() {
+		return String.valueOf(getNumeroDocumento()) + " - " + getNombre() + " " + getApellido();
 	}
 
 }
