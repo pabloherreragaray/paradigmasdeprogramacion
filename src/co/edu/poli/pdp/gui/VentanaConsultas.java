@@ -108,6 +108,11 @@ public class VentanaConsultas extends JInternalFrame {
 		panel_1.add(lblCdigo);
 
 		txCodigo = new JTextField();
+		txCodigo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cargarDatos();
+			}
+		});
 		panel_1.add(txCodigo);
 		txCodigo.setColumns(10);
 
@@ -126,12 +131,22 @@ public class VentanaConsultas extends JInternalFrame {
 		panel_1.add(lblAnimal);
 
 		cbAnimal = new JComboBox();
+		cbAnimal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cargarDatos();
+			}
+		});
 		panel_1.add(cbAnimal);
 
 		JLabel lblProfesional = new JLabel("Profesional:");
 		panel_1.add(lblProfesional);
 
 		cbProfesional = new JComboBox();
+		cbProfesional.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cargarDatos();
+			}
+		});
 		panel_1.add(cbProfesional);
 
 		cargarFiltros();
