@@ -89,4 +89,10 @@ public class ItemReceta implements Serializable {
 		this.cantidadDias = cantidadDias;
 	}
 
+	@Override
+	public String toString() {
+		return getMedicina().getNombreDroga() + ": " + getDosis() + ", frecuencia: "
+				+ String.valueOf(getFrecuenciaEnHoras()) + ", días: " + String.valueOf(getCantidadDias());
+	}
+
 }

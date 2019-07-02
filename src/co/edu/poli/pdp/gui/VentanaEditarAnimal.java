@@ -388,6 +388,10 @@ public class VentanaEditarAnimal extends JInternalFrame {
 					+ String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 			return;
 		}
+		if (getSistema().getAnimalPorNumeroRegistro(registro) != null) {
+			mostrarMensaje("El número de registro " + String.valueOf(registro) + " ya está en uso");
+			return;
+		}
 		animal.setNumeroRegistro(registro);
 		animal.setNombre(getTxNombre().getText());
 		animal.setFechaNacimiento(new Date(anio, mes - 1, dia));

@@ -99,7 +99,7 @@ public class SistemaConsultasMedicasVeterinaria {
 	 * @param numeroDocumento Número de documento
 	 * @return Propietario encontrado o null
 	 */
-	public Propietario getPropietarioPorNumeroDocumento(int numeroDocumento) {
+	public Propietario getPropietarioPorNumeroDocumento(long numeroDocumento) {
 		return propietarios.stream().filter((p) -> p.getNumeroDocumento() == numeroDocumento).findFirst().orElse(null);
 	}
 
@@ -118,7 +118,7 @@ public class SistemaConsultasMedicasVeterinaria {
 	 * @param numeroDocumento Número de documento
 	 * @return Profesional encontrado o null
 	 */
-	public Profesional getProfesionalPorNumeroDocumento(int numeroDocumento) {
+	public Profesional getProfesionalPorNumeroDocumento(long numeroDocumento) {
 		return profesionales.stream().filter((p) -> p.getNumeroDocumento() == numeroDocumento).findFirst().orElse(null);
 	}
 

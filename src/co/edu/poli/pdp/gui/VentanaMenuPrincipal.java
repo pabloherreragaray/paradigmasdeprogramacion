@@ -22,9 +22,9 @@ public class VentanaMenuPrincipal extends JInternalFrame {
 		setBounds(100, 100, 270, 292);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 200 };
-		gridBagLayout.rowHeights = new int[] { 0, 0 };
+		gridBagLayout.rowHeights = new int[] { 0, 0, 0 };
 		gridBagLayout.columnWeights = new double[] { 0.0 };
-		gridBagLayout.rowWeights = new double[] { 0.0, 0.0 };
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0 };
 		getContentPane().setLayout(gridBagLayout);
 
 		JPanel panelAdministracion = new JPanel();
@@ -41,6 +41,7 @@ public class VentanaMenuPrincipal extends JInternalFrame {
 		JButton btnConsultas = new JButton("Consultas");
 		btnConsultas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				MainFrame.instancia.consultas.mostrar();
 			}
 		});
 		panelAdministracion.add(btnConsultas);
@@ -72,6 +73,7 @@ public class VentanaMenuPrincipal extends JInternalFrame {
 		JPanel panelMaestros = new JPanel();
 		panelMaestros.setBorder(new TitledBorder(null, "Maestros", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		GridBagConstraints gbc_panelMaestros = new GridBagConstraints();
+		gbc_panelMaestros.insets = new Insets(0, 0, 5, 0);
 		gbc_panelMaestros.fill = GridBagConstraints.HORIZONTAL;
 		gbc_panelMaestros.gridx = 0;
 		gbc_panelMaestros.gridy = 1;
@@ -117,6 +119,19 @@ public class VentanaMenuPrincipal extends JInternalFrame {
 			}
 		});
 		panelMaestros.add(btnEspecialidades);
+
+		JButton btnAcercaDelPrograma = new JButton("Acerca del programa");
+		btnAcercaDelPrograma.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DialogoAcercaDe d = new DialogoAcercaDe();
+				d.pack();
+				d.setVisible(true);
+			}
+		});
+		GridBagConstraints gbc_btnAcercaDelPrograma = new GridBagConstraints();
+		gbc_btnAcercaDelPrograma.gridx = 0;
+		gbc_btnAcercaDelPrograma.gridy = 2;
+		getContentPane().add(btnAcercaDelPrograma, gbc_btnAcercaDelPrograma);
 
 	}
 }

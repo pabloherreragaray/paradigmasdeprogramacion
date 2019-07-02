@@ -332,6 +332,15 @@ public class VentanaEditarPersona extends JInternalFrame {
 			mostrarMensaje("El celular debe ser un número");
 			return;
 		}
+		boolean enUso;
+		if (persona instanceof Profesional)
+			enUso = getSistema().getProfesionalPorNumeroDocumento(documento) != null;
+		else
+			enUso = getSistema().getPropietarioPorNumeroDocumento(documento) != null;
+		if (enUso) {
+			mostrarMensaje("El documento " + String.valueOf(documento) + " ya está en uso");
+			return;
+		}
 		persona.setNumeroDocumento(documento);
 		persona.setNombre(getTxNombre().getText());
 		persona.setApellido(getTxApellido().getText());
@@ -364,10 +373,10 @@ public class VentanaEditarPersona extends JInternalFrame {
 		}
 		getSistema().guardar();
 		if (persona instanceof Profesional) {
-			//mostrarMensaje("Profesional guardado");
+			// mostrarMensaje("Profesional guardado");
 			MainFrame.instancia.profesionales.cargarDatos();
 		} else {
-			//mostrarMensaje("Propietario guardado");
+			// mostrarMensaje("Propietario guardado");
 			MainFrame.instancia.propietarios.cargarDatos();
 		}
 		esNuevo = false;

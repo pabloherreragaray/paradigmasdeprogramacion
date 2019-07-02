@@ -18,6 +18,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
+import javax.swing.JFrame;
 
 public class VentanaAnimales extends JInternalFrame {
 	private JTable table;
@@ -26,6 +27,7 @@ public class VentanaAnimales extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public VentanaAnimales() {
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setTitle("Animales");
 		setResizable(true);
 		setClosable(true);
